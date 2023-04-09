@@ -8,6 +8,7 @@ use App\ItemType\AgedBrie;
 use App\ItemType\BackstagePasses;
 use App\ItemType\Regular;
 use App\ItemType\Sulfuras;
+use App\ItemType\MagicRing;
 
 class ItemFactory
 {
@@ -15,6 +16,7 @@ class ItemFactory
         'Aged Brie' => AgedBrie::class,
         'Backstage passes' => BackstagePasses::class,
         'Sulfuras' => Sulfuras::class,
+        'Magic Ring' => MagicRing::class,
     ];
 
     public static function create(string $name, int $sellIn, int $quality): ItemInterface
