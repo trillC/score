@@ -4,19 +4,30 @@ namespace App;
 
 final class Item
 {
-    public $name;
-    public $sell_in;
-    public $quality;
-
-    function __construct($name, $sell_in, $quality)
-    {
-        $this->name = $name;
-        $this->sell_in = $sell_in;
-        $this->quality = $quality;
+    public function __construct(
+        public readonly string $name,
+        private int $sellIn,
+        private int $quality,
+    ) {
     }
 
-    public function __toString()
+    public function getQuality(): int
     {
-        return "{$this->name}, {$this->sell_in}, {$this->quality}";
+        return $this->quality;
+    }
+
+    public function setQuality(int $quality): void
+    {
+        $quality < 0 ? $this->quality = 0 : $this->quality = $quality;
+    }
+
+    public function getSellIn(): int
+    {
+        return $this->sellIn;
+    }
+
+    public function decreaseSellIn(): void
+    {
+        $this->sellIn--;
     }
 }
